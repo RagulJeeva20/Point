@@ -21,9 +21,9 @@ public class Point
          d=String.valueOf(y);
         poi=("(" + c + "," + d + ")");
         System.out.println("original point is : " + poi);
-        equal();
+        eq();
     }
-    void equal()
+    void eq()
     {
         System.out.println(c.equals(d));
 
