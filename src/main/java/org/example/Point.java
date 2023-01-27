@@ -2,45 +2,40 @@ package org.example;
 
 import java.util.Scanner;
 
-public class Point
+public class Point implements Cloneable
 {
-    int x;
-    int y;
-    String c;
-    String d;
-
-    String poi;
-    Scanner s=new Scanner(System.in);
-    Point()
+    Integer x;
+    Integer y;
+    
+    Point(Integer a,Integer b)
     {
-        System.out.println("enter the x coordinate:");
-        x= s.nextInt();
-        System.out.println("enter the y coordinate:");
-        y= s.nextInt();
-         c=String.valueOf(x);
-         d=String.valueOf(y);
-        poi=("(" + c + "," + d + ")");
-        System.out.println("original point is : " + poi);
-        eq();
+        this.x=a;
+        this.y=b;
     }
     void eq()
     {
-        System.out.println(c.equals(d));
+        System.out.println(x.equals(y));
 
     }
-    void cloned()
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException 
     {
-        String e=c;
-        String f=d;
-        String npoi=("(" + e + "," + f + ")");
-        System.out.println("cloned point is :" + npoi);
+        return super.clone();
     }
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws CloneNotSupportedException
     {
-        Point o=new Point();
-        Point j= o;
-        j.cloned();
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter x corodinate:");
+        Integer p=s.nextInt();
+        System.out.println("Enter y corodinate:");
+        Integer q=s.nextInt();
+        Point r =new Point(p,q);
+        Point m=(Point)r.clone();
+        m.eq();
+
+
     }
 
 }
